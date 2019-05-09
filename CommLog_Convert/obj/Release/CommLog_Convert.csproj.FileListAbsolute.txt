@@ -32,3 +32,4 @@ C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Release\CommLog
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Release\CommLog_Convert.csproj.CopyComplete
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Release\CommLog_Convert.exe
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Release\CommLog_Convert.pdb
+C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Release\CommLog_Convert.csprojAssemblyReference.cache

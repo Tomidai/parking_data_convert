@@ -81,11 +81,15 @@ namespace CommLog_Convert {
 
             //回数券使用金額
             string coupon_ticket_used = "000000";
+
             int coupon_1, coupon_2, coupon_3, coupon_4;
             switch(readLine.Length) {
-
                 case 128:
-                    coupon_ticket_used = readLine.Substring(122,6);
+                    if(readLine.Substring(114,2) == "86") {
+                        accrued_payable = readLine.Substring(122,6);
+                    } else {
+                        coupon_ticket_used = readLine.Substring(122,6);
+                    }
                     break;
                 case 144:
                     coupon_1 = int.Parse(readLine.Substring(122,6));
@@ -181,7 +185,7 @@ namespace CommLog_Convert {
             //1連No
             string series_2 = "0";
 
-            //回数券1
+            //回数券使用明細
             string coupon_ticket_used_details_1 = "000000";
             string coupon_ticket_used_details_2 = "000000";
             string coupon_ticket_used_details_3 = "000000";
@@ -349,7 +353,7 @@ namespace CommLog_Convert {
                                AppSet.Default.password));
                 MySqlCommand cmd = new MySqlCommand(
                     string.Format(SQL.COMMSND27_INSERT,
-                                fs_flag, fs_time, terminal_number, command, now_closing_date),con);
+                                fs_flag,fs_time,terminal_number,command,now_closing_date),con);
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
                 cmd.Connection.Close();

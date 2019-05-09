@@ -26,7 +26,6 @@ C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\bin\Debug\EntityFra
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\bin\Debug\Google.Protobuf.xml
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\bin\Debug\MySql.Data.xml
-C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Debug\CommLog_Convert.csprojAssemblyReference.cache
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Debug\CommLog_Convert.SQL.resources
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Debug\CommLog_Convert.csproj.GenerateResource.cache
 C:\Users\dev1116\Desktop\CommLog_Convert_ALL\CommLog_Convert\obj\Debug\CommLog_Convert.csproj.CoreCompileInputs.cache
