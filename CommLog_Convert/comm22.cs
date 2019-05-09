@@ -24,53 +24,24 @@ namespace CommLog_Convert {
             //コマンドコード
             string command = "22";
 
-            //券種車種は一緒に処理する？
+
+            //券種判定
             string ticket_type = "00";
-            string car_type = "00";
-            if(readLine.Length >= 128) {
-                //定期かどうか
-                if(readLine.Substring(30,4) == "0000") {
-                    if(readLine.Substring(114,2) == "86") {
-                        ticket_type = "1";
-                        car_type = "3";
-                    } else if(readLine.Substring(72,6) != "000000") {
-                        ticket_type = "1";
-                        car_type = "2";
-                    } else {
-                        ticket_type = "1";
-                        car_type = "1";
-                    }
-                } else {
-                    ticket_type = "2";
-                    car_type = readLine.Substring(28,2);
-                }
-
-            } else if(readLine.Length >= 78) {
-                //宿泊割引
-                //定期の可能性あり　
-                if(readLine.Substring(30,4) == "0000") {
-                    if(readLine.Substring(72,6) != "000000") {
-                        ticket_type = "1";
-                        car_type = "2";
-                    } else {
-                        ticket_type = "1";
-                        car_type = "1";
-                    }
-                } else {
-                    ticket_type = "2";
-                    car_type = readLine.Substring(28,2);
-                }
-
-
+            if(readLine.Substring(30,4) == "0000") {
+                ticket_type = "1";
             } else {
-                //定期か駐車券かのみ
-                if(readLine.Substring(30,4) == "0000") {
-                    ticket_type = "1";
-                    car_type = "1";
-                } else {
-                    ticket_type = "2";
+                ticket_type = "2";
+            }
+
+            //車種判定
+            string car_type = "00";
+            switch(ticket_type) {
+                case "1":
+                    car_type = readLine.Substring(50,2);
+                    break;
+                case "2":
                     car_type = readLine.Substring(28,2);
-                }
+                    break;
             }
 
             //出庫日時
