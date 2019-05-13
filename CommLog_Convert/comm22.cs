@@ -153,10 +153,10 @@ namespace CommLog_Convert {
             string ticketing_device = readLine.Substring(48,2);
 
             //テナントNo
-            string tenant = "0000";
+            string tenant = "00";
             if(readLine.Length >= 128) {
                 if(readLine.Substring(114,2) == "86") {
-                    tenant = readLine.Substring(118,4);
+                    tenant = readLine.Substring(119,3);
                 }
             }
 
