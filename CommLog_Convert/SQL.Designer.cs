@@ -61,6 +61,21 @@ namespace CommLog_Convert {
         }
         
         /// <summary>
+        ///   DELETE
+        ///FROM
+        ///    parking_area_oote.command_22
+        ///WHERE
+        ///    fs_time = &apos;{0}&apos;
+        ///AND leaving_shedcol_ticket = &apos;{1}&apos;
+        ///; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string CNASEL_DATA_DERETE {
+            get {
+                return ResourceManager.GetString("CNASEL_DATA_DERETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   INSERT IGNORE
         ///INTO
         ///    command_21(

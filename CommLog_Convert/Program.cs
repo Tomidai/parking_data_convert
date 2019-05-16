@@ -89,10 +89,10 @@ namespace CommLog_Convert {
                         if(readLine.Substring(21,1) == "R" && readLine.Substring(27,2) == "13") {
                             int length = readLine.Length - 23;
                             comm.convert22(readLine);
-                        }else if(readLine.Substring(21,1) == "R" && readLine.Substring(27,2) == "10") {
+                        } else if(readLine.Substring(21,1) == "R" && readLine.Substring(27,2) == "10") {
                             int length = readLine.Length - 23;
                             comm.convert21(readLine);
-                        }else if(readLine.Substring(21,1) == "R" && readLine.Substring(27,2) == "23") {
+                        } else if(readLine.Substring(21,1) == "R" && readLine.Substring(27,2) == "23") {
                             comm.convert27(readLine);
                         }
                     }

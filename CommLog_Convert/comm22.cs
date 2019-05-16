@@ -255,22 +255,37 @@ namespace CommLog_Convert {
                 }
             }
 
-            MySqlConnection con = new MySqlConnection(
-                string.Format("Data Source={0};Database={1};User ID={2};password={3}",
-                               AppSet.Default.DataSource,
-                               AppSet.Default.Database,
-                               AppSet.Default.UserID,
-                               AppSet.Default.password));
-            MySqlCommand cmd = new MySqlCommand(
-                string.Format(SQL.COMMAND22_INSERT,
-                                fs_flag,fs_time,terminal_number,command,ticket_type,
-                                car_type,leaving_shedcol_time,commuter_pass_over,leaving_shedcol_ticket,cash_unpaid,
-                                accrued_payable,coupon_ticket_used,accounts_payable,parking_time,ticketing_device,
-                                tenant,receipt_time,accommondation_discount,z_2,series_2,
-                                coupon_ticket_used_details_1,coupon_ticket_used_details_2,coupon_ticket_used_details_3,coupon_ticket_used_details_4),con);
-            cmd.Connection.Open();
-            cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
+            //前回無効データの場合はDELETEする
+            if(readLine.Substring(12,1) == "9") {
+                MySqlConnection con = new MySqlConnection(
+                    string.Format("Data Source={0};Database={1};User ID={2};password={3}",
+                                   AppSet.Default.DataSource,
+                                   AppSet.Default.Database,
+                                   AppSet.Default.UserID,
+                                   AppSet.Default.password));
+                MySqlCommand cmd = new MySqlCommand(
+                    string.Format(SQL.CNASEL_DATA_DERETE,fs_time,leaving_shedcol_ticket),con);
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+                cmd.Clone();
+            } else {
+                MySqlConnection con = new MySqlConnection(
+                    string.Format("Data Source={0};Database={1};User ID={2};password={3}",
+                                   AppSet.Default.DataSource,
+                                   AppSet.Default.Database,
+                                   AppSet.Default.UserID,
+                                   AppSet.Default.password));
+                MySqlCommand cmd = new MySqlCommand(
+                    string.Format(SQL.COMMAND22_INSERT,
+                                    fs_flag,fs_time,terminal_number,command,ticket_type,
+                                    car_type,leaving_shedcol_time,commuter_pass_over,leaving_shedcol_ticket,cash_unpaid,
+                                    accrued_payable,coupon_ticket_used,accounts_payable,parking_time,ticketing_device,
+                                    tenant,receipt_time,accommondation_discount,z_2,series_2,
+                                    coupon_ticket_used_details_1,coupon_ticket_used_details_2,coupon_ticket_used_details_3,coupon_ticket_used_details_4),con);
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+            }
         }
 
         public void convert21(string str) {
